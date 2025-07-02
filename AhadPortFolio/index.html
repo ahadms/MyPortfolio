@@ -3,174 +3,924 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahad MS | Game Developer Portfolio</title>
+  <title>Ahad MS | Cyberpunk Game Developer</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --neon-pink: #ff2a6d;
+      --neon-blue: #05d9e8;
+      --neon-purple: #d300c5;
+      --neon-green: #00ff9d;
+      --dark: #0d0221;
+      --darker: #0a0118;
+      --light: #d1f7ff;
+      --gray: #1a1a2e;
+      --glow: 0 0 10px;
+    }
+    
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: white;
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      scroll-behavior: smooth;
+      line-height: 1.6;
     }
-    header {
-      padding: 80px 0;
-      text-align: center;
-      background: url('https://img.freepik.com/free-vector/digital-technology-banner_23-2148503793.jpg') no-repeat center center/cover;
-      background-blend-mode: overlay;
-      background-color: rgba(15, 12, 41, 0.85);
-    }
-    header h1 {
+    
+    h1, h2, h3, h4, h5, h6 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      animation: slideInDown 1s ease;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    header p {
-      font-size: 1.3rem;
-      animation: fadeIn 2s ease;
+    
+    .code-font {
+      font-family: 'Rajdhani', monospace;
+      font-weight: 500;
     }
-    section {
-      padding: 60px 0;
-    }
-    .project iframe {
+    
+    /* Cyberpunk Scanlines Effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 315px;
+      height: 100%;
+      background: 
+        linear-gradient(
+          rgba(18, 16, 16, 0) 50%, 
+          rgba(0, 0, 0, 0.25) 50%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 0.06),
+          rgba(0, 255, 0, 0.02),
+          rgba(0, 0, 255, 0.06)
+        );
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    /* Glitch Effect */
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+    
+    .glitch-effect {
+      animation: glitch 1s linear infinite;
+    }
+    
+    .glitch-effect:hover {
+      animation: none;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: rgba(13, 2, 33, 0.9);
+      backdrop-filter: blur(5px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+    }
+    
+    .navbar-brand {
+      font-weight: 900;
+      color: var(--neon-pink) !important;
+      font-size: 1.5rem;
+      text-shadow: 0 0 5px var(--neon-pink);
+      letter-spacing: 2px;
+    }
+    
+    .nav-link {
+      color: var(--light) !important;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      position: relative;
+      letter-spacing: 1px;
+    }
+    
+    .nav-link:hover {
+      color: var(--neon-blue) !important;
+      text-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--neon-blue);
+      transition: width 0.3s ease;
+      box-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: 
+        linear-gradient(135deg, rgba(13,2,33,0.9) 0%, rgba(13,2,33,0.7) 100%), 
+        url('https://img.freepik.com/free-vector/digital-technology-banner_23-2148503793.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--neon-purple);
+      box-shadow: 0 0 30px rgba(211, 0, 197, 0.2);
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 42, 109, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(5, 217, 232, 0.1) 0%, transparent 30%);
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fadeInUp 1s ease;
+      text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+      letter-spacing: 3px;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1.5s ease;
+      font-weight: 300;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      animation: fadeInUp 2s ease;
+    }
+    
+    .btn-primary-custom {
+      background-color: var(--neon-pink);
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px var(--neon-pink);
+      text-transform: uppercase;
+      font-family: 'Orbitron', sans-serif;
+    }
+    
+    .btn-primary-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px var(--neon-pink);
+      color: var(--dark);
+    }
+    
+    .btn-primary-custom::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 55%
+      );
+      transform: rotate(30deg);
+      transition: all 0.5s ease;
+    }
+    
+    .btn-primary-custom:hover::before {
+      left: 100%;
+    }
+    
+    .btn-outline-custom {
+      border: 2px solid var(--neon-blue);
+      color: var(--neon-blue);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+    
+    .btn-outline-custom:hover {
+      background-color: var(--neon-blue);
+      color: var(--dark);
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px var(--neon-blue);
+    }
+    
+    /* Sections */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+    
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.05) 0%, transparent 20%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      display: inline-block;
+      position: relative;
+      color: var(--light);
+      text-shadow: 0 0 10px var(--neon-blue);
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-image {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+    
+    .about-image img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 0;
+      box-shadow: 0 0 20px var(--neon-pink);
+      border: 1px solid var(--neon-pink);
+      filter: grayscale(30%) contrast(110%);
+      transition: all 0.5s ease;
+    }
+    
+    .about-image img:hover {
+      filter: grayscale(0%) contrast(120%);
+      box-shadow: 0 0 30px var(--neon-pink);
+    }
+    
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px solid var(--neon-blue);
+      z-index: -1;
+      opacity: 0.7;
+    }
+    
+    .about-text {
+      flex: 2;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    
+    .about-text ul {
+      margin-bottom: 2rem;
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .about-text li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .about-text li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--neon-blue);
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--gray);
+      border-radius: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(5, 217, 232, 0.1);
+      border: 1px solid var(--neon-blue);
+      position: relative;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px var(--neon-blue);
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 42, 109, 0.05) 0%,
+        rgba(5, 217, 232, 0.05) 100%
+      );
+      pointer-events: none;
+    }
+    
+    .project-media {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--neon-blue);
+    }
+    
+    .project-media iframe {
+      width: 100%;
+      height: 100%;
       border: none;
     }
-    .project {
-      background: linear-gradient(145deg, #1f1c2c, #928dab);
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
+    
+    .project-content {
+      padding: 1.5rem;
     }
-    .project:hover {
-      transform: scale(1.03);
+    
+    .project-content h3 {
+      margin-bottom: 0.5rem;
+      color: var(--neon-pink);
+      text-shadow: 0 0 5px var(--neon-pink);
     }
-    .btn-custom {
-      background: linear-gradient(90deg, #00f2fe, #4facfe);
-      color: #000;
-      font-weight: bold;
-      border-radius: 50px;
+    
+    .project-content p {
+      margin-bottom: 1.5rem;
+      color: rgba(209, 247, 255, 0.8);
     }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--gray);
+      padding: 2rem;
+      border-radius: 0;
+      box-shadow: 0 0 20px rgba(5, 217, 232, 0.1);
+      border: 1px solid var(--neon-blue);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 42, 109, 0.05) 0%,
+        rgba(5, 217, 232, 0.05) 100%
+      );
+      pointer-events: none;
+    }
+    
+    .form-control {
+      background-color: #2a2a2a;
+      border: none;
+      color: var(--light);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0;
+      border-bottom: 1px solid var(--neon-blue);
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      background-color: #2a2a2a;
+      color: var(--light);
+      box-shadow: 0 0 0 0.25rem rgba(5, 217, 232, 0.25);
+      border-bottom: 1px solid var(--neon-pink);
+    }
+    
+    /* Footer */
     footer {
-      background: linear-gradient(to right, #0f0c29, #302b63);
-      padding: 30px;
+      background-color: var(--darker);
+      padding: 3rem 0;
       text-align: center;
+      border-top: 1px solid var(--neon-purple);
+      box-shadow: 0 0 30px rgba(211, 0, 197, 0.2);
+      position: relative;
     }
-    @keyframes slideInDown {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 42, 109, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(5, 217, 232, 0.1) 0%, transparent 30%);
+      pointer-events: none;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--neon-pink);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      text-shadow: 0 0 10px var(--neon-pink);
+      letter-spacing: 2px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      transition: all 0.3s ease;
+      position: relative;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--neon-blue);
+      text-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--neon-blue);
+      transition: width 0.3s ease;
+      box-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--neon-pink);
+      transform: translateY(-3px);
+      text-shadow: 0 0 10px var(--neon-pink);
+    }
+    
+    .copyright {
+      color: rgba(209, 247, 255, 0.5);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 42, 109, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .section {
+        padding: 4rem 0;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-links {
+        gap: 1rem;
+      }
+      
+      .footer-links a {
+        font-size: 0.9rem;
+      }
+      
+      .social-links {
+        gap: 1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ahad MS</h1>
-    <p>Unity Developer | Game Programmer</p>
-  </header>
-
-  <section class="container" id="about">
-    <h2 class="text-center">About Me</h2>
-    <p class="lead text-center">
-      Unity Game Developer with a passion for building engaging, impactful, and technically polished experiences across 2D, 3D, AR, VR, and multiplayer platforms. My portfolio includes immersive therapy games and creative interactive experiences — and at the heart of it all is my drive to solve meaningful problems through creativity and code.
-    </p>
-    <p>
-      While working at <strong>Thryv Rehab Solutions</strong>, I contributed to <strong>Pluto</strong> — a cutting-edge neurorehabilitation robot developed in collaboration with IIT Madras and CMC Vellore. It is designed to assist patients recovering from stroke, Parkinson’s, accidents, and other neurological conditions through real-time interaction and therapeutic gameplay.
-    </p>
-    <ul>
-      <li>Fix bugs and lead future development of Pluto’s main software</li>
-      <li>Design and build Unity-based therapy games to promote motor recovery</li>
-      <li>Develop the Pluto Device Testing Software to evaluate robotic performance and equipment health</li>
-      <li>Implement real-time communication between Unity and Pluto via Serial/Bluetooth protocols</li>
-      <li>Visualize data (range of motion, progress tracking etc.) within the Unity interface</li>
-    </ul>
-    <p>
-      Learn more about Pluto:
-      <br>• <a href="https://r2d2.iitm.ac.in/innovations/pluto" target="_blank">IIT Madras Innovation – Pluto</a>
-      <br>• <a href="https://www.thehindu.com/news/national/tamil-nadu/researchers-at-iit-m-and-cmc-vellore-develop-portable-robot-for-hand-rehabilitation/article69108828.ece" target="_blank">The Hindu – Pluto Robot</a>
-      <br>• <a href="https://www.cmch-vellore.edu/press-release-pluto-a-revolutionary-stroke-rehab-robot-developed-by-cmc-vellore-and-iit-madras/" target="_blank">CMC Vellore</a>
-    </p>
-    <p>
-      As part of my Pluto development journey, I visited CMC Ranipet Hospital and observed firsthand how patients use Pluto for recovery. That experience helped me design more effective rehabilitation games and led to my successful development of a Pluto device testing software that logs all service and manufacturing test results.
-    </p>
-  </section>
-
-  <section class="container" id="projects">
-    <h2 class="text-center">Projects</h2>
-
-    <div class="project">
-      <h4>Pluto: Neuro Rehab Game</h4>
-      <p>Therapy game system powered by real-time robotic input, used by patients for interactive hand rehabilitation. Designed using Unity to promote motion through engaging and adaptive gameplay based on sensor feedback.</p>
-      <iframe src="https://youtu.be/q2vTwMB31L8" allowfullscreen></iframe>
-    </div>
-
-    <div class="project">
-      <h4>Rush Compact (3D Multiplayer Game)</h4>
-      <p>Fast-paced FPS multiplayer game made using Photon PUN2. Built lobby systems, RPC-based shooting logic, input system integration, and polished game feel with postprocessing effects.</p>
-      <iframe src="https://www.youtube.com/embed/VJDYpliqSPw" allowfullscreen></iframe>
-      <a href="https://ahadms.itch.io/rushcompact" class="btn btn-custom mt-3">Play on Itch.io</a>
-    </div>
-
-    <div class="project">
-      <h4>Blue Guy (2D Platformer)</h4>
-      <p>Platform game inspired by Mario with traps, waypoints-based enemy AI, sprite animations, health and physics systems. Built for WebGL and Android.</p>
-      <iframe src="https://www.youtube.com/embed/yCzK3Bvy0uQ" allowfullscreen></iframe>
-      <a href="https://github.com/ahadms/2DPlatFormGame" class="btn btn-custom mt-3">GitHub</a>
-    </div>
-
-    <div class="project">
-      <h4>Pro Driver (3D Car Parking Game)</h4>
-      <p>3D vehicle physics simulator with parking challenges. Features AI pedestrians, level system, timers, and city environments. Built with Unity’s wheel colliders and custom controls.</p>
-      <iframe src="https://www.youtube.com/embed/2tTJMHDFBdQ" allowfullscreen></iframe>
-      <a href="https://github.com/ahadms/PRO-Driver" class="btn btn-custom mt-3">GitHub</a>
-    </div>
-
-    <div class="project">
-      <h4>Dead Zone (3D FPS Game)</h4>
-      <p>First-person shooter featuring sniper mechanics, cutscenes, blend trees, enemy AI with NavMesh, and weapon switching. Built terrain using Unity tools and added narrative with Timeline.</p>
-      <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
-      <a href="https://github.com/ahadms/DeadZoneShooter" class="btn btn-custom mt-3">GitHub</a>
-    </div>
-
-    <div class="project">
-      <h4>Bask It Right (AR Basketball Game)</h4>
-      <p>AR-based hoop shooting game using swipe gesture physics, score tracking, and custom AR raycast object placement. Built with Unity AR Foundation.</p>
-      <iframe src="https://www.youtube.com/embed/tBfV3S09UoQ" allowfullscreen></iframe>
-      <a href="https://github.com/ahadms/BaskItRight" class="btn btn-custom mt-3">GitHub</a>
-    </div>
-
-    <div class="project">
-      <h4>FlyBird (2D Endless Runner)</h4>
-      <p>Endless flappy-style 2D game with achievements, leaderboard system, Unity Ads integration, and global score tracking using PlayerPrefs.</p>
-      <iframe src="https://www.youtube.com/embed/w7VqhzP2oT4" allowfullscreen></iframe>
-      <a href="https://github.com/ahadms/FlyBird" class="btn btn-custom mt-3">GitHub</a>
-    </div>
-  </section>
-
-  <section class="container" id="contact">
-    <h2 class="text-center">Contact Me</h2>
-    <form action="https://formspree.io/f/mwpbwgjv" method="POST" class="w-75 mx-auto">
-      <div class="mb-3">
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" class="form-control" required>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand glitch-effect" href="#">AHAD MS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color: var(--neon-blue);"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pulse" href="#" download="AhadMSResume.pdf">
+              <i class="fas fa-download"></i> Resume
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="mb-3">
-        <label for="message">Your Message:</label>
-        <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>GAME DEVELOPER</h1>
+      <p>Unity Developer | Game Programmer | Creating immersive digital experiences</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary-custom">View My Work</a>
+        <a href="#contact" class="btn btn-outline-custom">Contact Me</a>
       </div>
-      <button type="submit" class="btn btn-custom w-100">Send</button>
-    </form>
+    </div>
   </section>
 
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Unity Game Developer with a passion for building engaging, impactful, and technically polished experiences across 2D, 3D, AR, VR, and multiplayer platforms. My portfolio includes immersive therapy games and creative interactive experiences — and at the heart of it all is my drive to solve meaningful problems through creativity and code.
+          </p>
+          <p>
+            While working at <strong>Thryv Rehab Solutions</strong>, I contributed to <strong>Pluto</strong> — a cutting-edge neurorehabilitation robot developed in collaboration with IIT Madras and CMC Vellore. It is designed to assist patients recovering from stroke, Parkinson's, accidents, and other neurological conditions through real-time interaction and therapeutic gameplay.
+          </p>
+          <ul>
+            <li>Fix bugs and lead future development of Pluto's main software</li>
+            <li>Design and build Unity-based therapy games to promote motor recovery</li>
+            <li>Develop the Pluto Device Testing Software to evaluate robotic performance and equipment health</li>
+            <li>Implement real-time communication between Unity and Pluto via Serial/Bluetooth protocols</li>
+            <li>Visualize data (range of motion, progress tracking etc.) within the Unity interface</li>
+          </ul>
+          <p>
+            Learn more about Pluto:
+            <br>• <a href="https://r2d2.iitm.ac.in/innovations/pluto" target="_blank" style="color: var(--neon-blue);">IIT Madras Innovation – Pluto</a>
+            <br>• <a href="https://www.thehindu.com/news/national/tamil-nadu/researchers-at-iit-m-and-cmc-vellore-develop-portable-robot-for-hand-rehabilitation/article69108828.ece" target="_blank" style="color: var(--neon-blue);">The Hindu – Pluto Robot</a>
+            <br>• <a href="https://www.cmch-vellore.edu/press-release-pluto-a-revolutionary-stroke-rehab-robot-developed-by-cmc-vellore-and-iit-madras/" target="_blank" style="color: var(--neon-blue);">CMC Vellore</a>
+          </p>
+          <p>
+            As part of my Pluto development journey, I visited CMC Ranipet Hospital and observed firsthand how patients use Pluto for recovery. That experience helped me design more effective rehabilitation games and led to my successful development of a Pluto device testing software that logs all service and manufacturing test results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- Pluto -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Pluto: Neuro Rehab Game</h3>
+            <p>Therapy game system powered by real-time robotic input, used by patients for interactive hand rehabilitation. Designed using Unity to promote motion through engaging and adaptive gameplay based on sensor feedback.</p>
+          </div>
+        </div>
+        
+        <!-- Rush Compact -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/VJDYpliqSPw" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Rush Compact (3D Multiplayer Game)</h3>
+            <p>Fast-paced FPS multiplayer game made using Photon PUN2. Built lobby systems, RPC-based shooting logic, input system integration, and polished game feel with postprocessing effects.</p>
+            <div class="project-links">
+              <a href="https://ahadms.itch.io/rushcompact" class="btn btn-primary-custom btn-sm" target="_blank">Play on Itch.io</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Blue Guy -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/yCzK3Bvy0uQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Blue Guy (2D Platformer)</h3>
+            <p>Platform game inspired by Mario with traps, waypoints-based enemy AI, sprite animations, health and physics systems. Built for WebGL and Android.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/2DPlatFormGame" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pro Driver -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/2tTJMHDFBdQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Pro Driver (3D Car Parking Game)</h3>
+            <p>3D vehicle physics simulator with parking challenges. Features AI pedestrians, level system, timers, and city environments. Built with Unity's wheel colliders and custom controls.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/PRO-Driver" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Dead Zone -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Dead Zone (3D FPS Game)</h3>
+            <p>First-person shooter featuring sniper mechanics, cutscenes, blend trees, enemy AI with NavMesh, and weapon switching. Built terrain using Unity tools and added narrative with Timeline.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/DeadZoneShooter" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bask It Right -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/tBfV3S09UoQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Bask It Right (AR Basketball Game)</h3>
+            <p>AR-based hoop shooting game using swipe gesture physics, score tracking, and custom AR raycast object placement. Built with Unity AR Foundation.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/BaskItRight" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FlyBird -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/w7VqhzP2oT4" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>FlyBird (2D Endless Runner)</h3>
+            <p>Endless flappy-style 2D game with achievements, leaderboard system, Unity Ads integration, and global score tracking using PlayerPrefs.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/mwpbwgjv" method="POST">
+          <div class="mb-3">
+            <label for="email" class="form-label">Your Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message:</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary-custom w-100 pulse">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Ahad MS | <a href="mailto:ahadms1868@gmail.com">ahadms1868@gmail.com</a> | <a href="https://www.linkedin.com/in/ahad-ms/">LinkedIn</a> | <a href="https://github.com/ahadms">GitHub</a></p>
+    <div class="container">
+      <div class="footer-logo">AHAD MS</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="mailto:ahadms1868@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/ahad-ms/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ahadms" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Ahad MS. All rights reserved.
+      </div>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(13, 2, 33, 0.95)';
+        navbar.style.boxShadow = '0 0 20px rgba(5, 217, 232, 0.4)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(13, 2, 33, 0.9)';
+        navbar.style.boxShadow = '0 0 15px rgba(5, 217, 232, 0.3)';
+      }
+    });
+    
+    // Add glitch effect randomly to navbar brand
+    const navbarBrand = document.querySelector('.navbar-brand');
+    
+    function randomGlitch() {
+      if (Math.random() > 0.9) {
+        navbarBrand.classList.add('glitch-effect');
+        setTimeout(() => {
+          navbarBrand.classList.remove('glitch-effect');
+        }, 1000);
+      }
+    }
+    
+    setInterval(randomGlitch, 5000);
+  </script>
 </body>
 </html>
