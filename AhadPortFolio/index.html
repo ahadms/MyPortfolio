@@ -11,7 +11,6 @@
     :root {
       --neon-pink: #ff2a6d;
       --neon-blue: #05d9e8;
-      --neon-purple: #d300c5;
       --neon-green: #00ff9d;
       --dark: #0d0221;
       --darker: #0a0118;
@@ -19,7 +18,7 @@
       --gray: #1a1a2e;
       --glow: 0 0 10px;
     }
-    
+
     body {
       font-family: 'Rajdhani', sans-serif;
       background-color: var(--dark);
@@ -27,19 +26,19 @@
       scroll-behavior: smooth;
       line-height: 1.6;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    
+
     .code-font {
       font-family: 'Rajdhani', monospace;
       font-weight: 500;
     }
-    
+
     /* Cyberpunk Scanlines Effect */
     body::before {
       content: "";
@@ -48,9 +47,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
+      background:
         linear-gradient(
-          rgba(18, 16, 16, 0) 50%, 
+          rgba(18, 16, 16, 0) 50%,
           rgba(0, 0, 0, 0.25) 50%
         ),
         linear-gradient(
@@ -63,7 +62,7 @@
       pointer-events: none;
       z-index: 1000;
     }
-    
+
     /* Glitch Effect */
     @keyframes glitch {
       0% { transform: translate(0); }
@@ -73,15 +72,15 @@
       80% { transform: translate(2px, -2px); }
       100% { transform: translate(0); }
     }
-    
+
     .glitch-effect {
       animation: glitch 1s linear infinite;
     }
-    
+
     .glitch-effect:hover {
       animation: none;
     }
-    
+
     /* Navigation */
     .navbar {
       background-color: rgba(13, 2, 33, 0.9);
@@ -90,7 +89,7 @@
       border-bottom: 1px solid var(--neon-blue);
       box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
     }
-    
+
     .navbar-brand {
       font-weight: 900;
       color: var(--neon-pink) !important;
@@ -98,7 +97,7 @@
       text-shadow: 0 0 5px var(--neon-pink);
       letter-spacing: 2px;
     }
-    
+
     .nav-link {
       color: var(--light) !important;
       margin: 0 0.5rem;
@@ -106,12 +105,12 @@
       position: relative;
       letter-spacing: 1px;
     }
-    
+
     .nav-link:hover {
       color: var(--neon-blue) !important;
       text-shadow: 0 0 5px var(--neon-blue);
     }
-    
+
     .nav-link::after {
       content: '';
       position: absolute;
@@ -123,24 +122,27 @@
       transition: width 0.3s ease;
       box-shadow: 0 0 5px var(--neon-blue);
     }
-    
+
     .nav-link:hover::after {
       width: 100%;
     }
     
+    .navbar-toggler .fa-bars {
+        color: var(--neon-blue);
+        text-shadow: 0 0 5px var(--neon-blue);
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
-      background: 
-        linear-gradient(135deg, rgba(13,2,33,0.9) 0%, rgba(13,2,33,0.7) 100%), 
+      background:
+        linear-gradient(135deg, rgba(13,2,33,0.9) 0%, rgba(13,2,33,0.7) 100%),
         url('https://img.freepik.com/free-vector/digital-technology-banner_23-2148503793.jpg') no-repeat center center/cover;
       display: flex;
       align-items: center;
       padding: 0 2rem;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid var(--neon-purple);
-      box-shadow: 0 0 30px rgba(211, 0, 197, 0.2);
     }
     
     .hero::before {
@@ -150,12 +152,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(255, 42, 109, 0.1) 0%, transparent 30%),
         radial-gradient(circle at 80% 70%, rgba(5, 217, 232, 0.1) 0%, transparent 30%);
       pointer-events: none;
     }
-    
+
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
@@ -163,7 +165,7 @@
       position: relative;
       z-index: 1;
     }
-    
+
     .hero h1 {
       font-size: 4rem;
       margin-bottom: 1rem;
@@ -175,7 +177,7 @@
       text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
       letter-spacing: 3px;
     }
-    
+
     .hero p {
       font-size: 1.5rem;
       margin-bottom: 2rem;
@@ -183,14 +185,14 @@
       animation: fadeInUp 1.5s ease;
       font-weight: 300;
     }
-    
+
     .hero-buttons {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       animation: fadeInUp 2s ease;
     }
-    
+
     .btn-primary-custom {
       background-color: var(--neon-pink);
       color: var(--dark);
@@ -206,34 +208,13 @@
       text-transform: uppercase;
       font-family: 'Orbitron', sans-serif;
     }
-    
+
     .btn-primary-custom:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 20px var(--neon-pink);
       color: var(--dark);
     }
-    
-    .btn-primary-custom::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        transparent 45%,
-        rgba(255, 255, 255, 0.3) 50%,
-        transparent 55%
-      );
-      transform: rotate(30deg);
-      transition: all 0.5s ease;
-    }
-    
-    .btn-primary-custom:hover::before {
-      left: 100%;
-    }
-    
+
     .btn-outline-custom {
       border: 2px solid var(--neon-blue);
       color: var(--neon-blue);
@@ -247,7 +228,7 @@
       font-family: 'Orbitron', sans-serif;
       box-shadow: 0 0 10px var(--neon-blue);
     }
-    
+
     .btn-outline-custom:hover {
       background-color: var(--neon-blue);
       color: var(--dark);
@@ -255,6 +236,11 @@
       box-shadow: 0 0 20px var(--neon-blue);
     }
     
+    .btn-outline-custom.btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
     /* Sections */
     .section {
       padding: 6rem 0;
@@ -268,19 +254,19 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
+      background:
         radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.05) 0%, transparent 20%);
       pointer-events: none;
       z-index: -1;
     }
-    
+
     .section-title {
       text-align: center;
       margin-bottom: 4rem;
       position: relative;
     }
-    
+
     .section-title h2 {
       font-size: 2.5rem;
       display: inline-block;
@@ -288,7 +274,7 @@
       color: var(--light);
       text-shadow: 0 0 10px var(--neon-blue);
     }
-    
+
     .section-title h2::after {
       content: '';
       position: absolute;
@@ -300,20 +286,20 @@
       transform: translateX(-50%);
       box-shadow: 0 0 10px var(--neon-blue);
     }
-    
+
     /* About Section */
     .about-content {
       display: flex;
       align-items: center;
       gap: 3rem;
     }
-    
+
     .about-image {
       flex: 1;
       text-align: center;
       position: relative;
     }
-    
+
     .about-image img {
       width: 100%;
       max-width: 350px;
@@ -323,19 +309,19 @@
       filter: grayscale(30%) contrast(110%);
       transition: all 0.5s ease;
     }
-    
+
     .about-image img:hover {
       filter: grayscale(0%) contrast(120%);
       box-shadow: 0 0 30px var(--neon-pink);
     }
-    
+
     .about-image::before {
       content: '';
       position: absolute;
       top: -10px;
-      left: -10px;
+      left: 10px;
       right: -10px;
-      bottom: -10px;
+      bottom: 10px;
       border: 1px solid var(--neon-blue);
       z-index: -1;
       opacity: 0.7;
@@ -344,43 +330,185 @@
     .about-text {
       flex: 2;
     }
-    
+
     .about-text p {
       margin-bottom: 1.5rem;
       line-height: 1.8;
       font-size: 1.1rem;
     }
-    
-    .about-text ul {
+
+    /* Experience & Skills Card Styling */
+    .experience-item, .skills-category {
+      background: rgba(26, 26, 46, 0.7);
+      border-radius: 0;
+      padding: 1.5rem;
       margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      border-left: 3px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(5, 217, 232, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-item:hover, .skills-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px var(--neon-blue);
+    }
+
+    .experience-item::before, .skills-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 42, 109, 0.05) 0%,
+        rgba(5, 217, 232, 0.05) 100%
+      );
+      pointer-events: none;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .experience-header h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--neon-green);
+    }
+    
+    .company-location {
+      font-weight: normal;
+      opacity: 0.8;
+      font-size: 0.9em;
+      color: var(--light);
+    }
+
+    .experience-date {
+      color: var(--neon-pink);
+      font-family: 'Rajdhani', monospace;
+      font-size: 0.9rem;
+      background: rgba(255, 42, 109, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 0;
+      border: 1px solid var(--neon-pink);
+      box-shadow: 0 0 5px var(--neon-pink);
+    }
+
+    .company-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .experience-list {
+      margin-bottom: 1.8rem;
       list-style: none;
       padding-left: 0;
     }
-    
-    .about-text li {
-      margin-bottom: 0.8rem;
+
+    .experience-list li {
+      margin-bottom: 0.7rem;
       position: relative;
-      padding-left: 2rem;
-      font-size: 1.1rem;
+      padding-left: 1.8rem;
+      line-height: 1.5;
     }
     
-    .about-text li::before {
-      content: '>';
+    .experience-list li i {
       position: absolute;
       left: 0;
+      top: 0.2rem;
       color: var(--neon-blue);
-      font-family: 'Orbitron', sans-serif;
-      font-weight: bold;
+      width: 1.2rem;
+      text-align: center;
+      text-shadow: 0 0 5px var(--neon-blue);
+    }
+
+    .project-references h4 {
+        color: var(--neon-blue);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    .reference-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .reference-item {
+        color: var(--light);
+        text-decoration: none;
+        background: rgba(5, 217, 232, 0.1);
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--neon-blue);
+        transition: all 0.3s ease;
+    }
+    .reference-item:hover {
+        background: rgba(5, 217, 232, 0.2);
+        color: var(--neon-blue);
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+    .reference-item i {
+        margin-right: 0.5rem;
+        color: var(--neon-pink);
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skills-category h3 {
+      color: var(--neon-blue);
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
       text-shadow: 0 0 5px var(--neon-blue);
     }
     
+    .skills-category h3 i {
+      margin-right: 0.6rem;
+      color: var(--neon-pink);
+    }
+    
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    
+    .skill-tag {
+      background: rgba(5, 217, 232, 0.1);
+      color: var(--neon-blue);
+      padding: 0.5rem 1rem;
+      border-radius: 0;
+      font-size: 0.85rem;
+      font-family: 'Rajdhani', monospace;
+      transition: all 0.3s ease;
+      border: 1px solid var(--neon-blue);
+      box-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .skill-tag:hover {
+      background: rgba(5, 217, 232, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+
     /* Projects Section */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 2rem;
     }
-    
+
     .project-card {
       background-color: var(--gray);
       border-radius: 0;
@@ -390,12 +518,12 @@
       border: 1px solid var(--neon-blue);
       position: relative;
     }
-    
+
     .project-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 0 30px var(--neon-blue);
     }
-    
+
     .project-card::before {
       content: '';
       position: absolute;
@@ -410,40 +538,207 @@
       );
       pointer-events: none;
     }
-    
+
     .project-media {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-      border-bottom: 1px solid var(--neon-blue);
+        position: relative;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+        border-bottom: 1px solid var(--neon-blue);
     }
-    
+
     .project-media iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
     }
     
+    .project-card:hover .project-media iframe {
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+
     .project-content {
       padding: 1.5rem;
     }
-    
+
     .project-content h3 {
       margin-bottom: 0.5rem;
       color: var(--neon-pink);
       text-shadow: 0 0 5px var(--neon-pink);
     }
-    
+
     .project-content p {
       margin-bottom: 1.5rem;
       color: rgba(209, 247, 255, 0.8);
     }
-    
+
     .project-links {
       display: flex;
       gap: 1rem;
     }
+
+    /* Education Section */
+    .education-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .education-timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      margin-left: -1px;
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .education-item {
+      position: relative;
+      background-color: var(--gray);
+      border-radius: 0;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      margin-left: 40px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(5, 217, 232, 0.1);
+    }
+
+    .education-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px var(--neon-blue);
+    }
+
+    .education-item::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: -38px;
+      background-color: var(--neon-pink);
+      border-radius: 50%;
+      top: 24px;
+      box-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--neon-green);
+    }
+
+    .education-date {
+      color: var(--neon-pink);
+      font-family: 'Rajdhani', monospace;
+      font-size: 0.9rem;
+      background: rgba(255, 42, 109, 0.1);
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--neon-pink);
+      box-shadow: 0 0 5px var(--neon-pink);
+    }
+
+    .institution {
+      color: rgba(209, 247, 255, 0.8);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .education-actions {
+      margin-top: 1rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        background-color: var(--gray);
+        border: 1px solid var(--neon-blue);
+        padding: 2.5rem;
+        margin: 0 auto;
+        max-width: 800px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(5, 217, 232, 0.1);
+    }
     
+    .quote-icon {
+      color: var(--neon-pink);
+      font-size: 1.5rem;
+      opacity: 0.7;
+      margin: 0 0.5rem;
+      text-shadow: 0 0 5px var(--neon-pink);
+    }
+    
+    .testimonial-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(209, 247, 255, 0.9);
+    }
+    
+    .testimonial-author h4 {
+        color: var(--neon-green);
+        text-shadow: 0 0 5px var(--neon-green);
+        margin-bottom: 0.5rem;
+    }
+    
+    .author-title {
+        color: rgba(209, 247, 255, 0.7);
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .linkedin-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--neon-blue);
+        padding: 0.5rem 1.2rem;
+        border-radius: 0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        border: 1px solid var(--neon-blue);
+    }
+    
+    .linkedin-btn:hover {
+        background-color: var(--neon-blue);
+        color: var(--dark);
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .carousel-indicators button {
+        background-color: rgba(5, 217, 232, 0.3);
+    }
+    
+    .carousel-indicators button.active {
+        background-color: var(--neon-blue);
+        box-shadow: 0 0 5px var(--neon-blue);
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: var(--neon-blue);
+        border-radius: 0;
+        width: 40px;
+        height: 40px;
+        background-size: 60%;
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
     /* Contact Section */
     .contact-form {
       max-width: 600px;
@@ -453,25 +748,8 @@
       border-radius: 0;
       box-shadow: 0 0 20px rgba(5, 217, 232, 0.1);
       border: 1px solid var(--neon-blue);
-      position: relative;
-      overflow: hidden;
     }
-    
-    .contact-form::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 42, 109, 0.05) 0%,
-        rgba(5, 217, 232, 0.05) 100%
-      );
-      pointer-events: none;
-    }
-    
+
     .form-control {
       background-color: #2a2a2a;
       border: none;
@@ -482,37 +760,23 @@
       border-bottom: 1px solid var(--neon-blue);
       transition: all 0.3s ease;
     }
-    
+
     .form-control:focus {
       background-color: #2a2a2a;
       color: var(--light);
       box-shadow: 0 0 0 0.25rem rgba(5, 217, 232, 0.25);
       border-bottom: 1px solid var(--neon-pink);
     }
-    
+
     /* Footer */
     footer {
       background-color: var(--darker);
       padding: 3rem 0;
       text-align: center;
-      border-top: 1px solid var(--neon-purple);
-      box-shadow: 0 0 30px rgba(211, 0, 197, 0.2);
-      position: relative;
+      border-top: 1px solid var(--neon-blue);
+      box-shadow: 0 0 20px rgba(5, 217, 232, 0.2);
     }
-    
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 42, 109, 0.1) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(5, 217, 232, 0.1) 0%, transparent 30%);
-      pointer-events: none;
-    }
-    
+
     .footer-logo {
       font-size: 1.8rem;
       font-weight: 900;
@@ -522,7 +786,7 @@
       text-shadow: 0 0 10px var(--neon-pink);
       letter-spacing: 2px;
     }
-    
+
     .footer-links {
       display: flex;
       justify-content: center;
@@ -530,61 +794,44 @@
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
-    
+
     .footer-links a {
       color: var(--light);
       transition: all 0.3s ease;
-      position: relative;
       text-decoration: none;
       letter-spacing: 1px;
     }
-    
+
     .footer-links a:hover {
       color: var(--neon-blue);
       text-shadow: 0 0 5px var(--neon-blue);
     }
-    
-    .footer-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 1px;
-      bottom: -2px;
-      left: 0;
-      background-color: var(--neon-blue);
-      transition: width 0.3s ease;
-      box-shadow: 0 0 5px var(--neon-blue);
-    }
-    
-    .footer-links a:hover::after {
-      width: 100%;
-    }
-    
+
     .social-links {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       margin-bottom: 2rem;
     }
-    
+
     .social-links a {
       color: var(--light);
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
-    
+
     .social-links a:hover {
       color: var(--neon-pink);
       transform: translateY(-3px);
       text-shadow: 0 0 10px var(--neon-pink);
     }
-    
+
     .copyright {
       color: rgba(209, 247, 255, 0.5);
       font-size: 0.9rem;
       letter-spacing: 1px;
     }
-    
+
     /* Animations */
     @keyframes fadeInUp {
       from {
@@ -597,76 +844,50 @@
       }
     }
     
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 42, 109, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0); }
-    }
-    
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-    
     /* Responsive */
     @media (max-width: 992px) {
       .about-content {
         flex-direction: column;
       }
-      
       .hero h1 {
         font-size: 3rem;
       }
     }
-    
+
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero p {
-        font-size: 1.2rem;
-      }
-      
-      .section {
-        padding: 4rem 0;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1.2rem; }
+      .section { padding: 4rem 0; }
+      .education-timeline::before { left: 15px; }
+      .education-item { margin-left: 30px; }
+      .education-item::before { left: -28px; }
+      .education-header { flex-direction: column; align-items: flex-start; }
+      .education-date { margin-top: 0.5rem; }
+      .testimonial-card { padding: 1.5rem; }
+      .testimonial-text { font-size: 1rem; }
+      .experience-header { flex-direction: column; align-items: flex-start; }
+      .experience-date { margin-top: 0.5rem; }
     }
-    
+
     @media (max-width: 576px) {
       .hero-buttons {
         flex-direction: column;
         align-items: center;
       }
-      
       .projects-grid {
         grid-template-columns: 1fr;
       }
-      
-      .footer-links {
-        gap: 1rem;
-      }
-      
-      .footer-links a {
-        font-size: 0.9rem;
-      }
-      
-      .social-links {
-        gap: 1rem;
-      }
-      
-      .navbar-brand {
-        font-size: 1.2rem;
-      }
+      .footer-links { gap: 1rem; }
+      .footer-links a { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand glitch-effect" href="#">AHAD MS</a>
+      <a class="navbar-brand glitch-effect" href="#">Ahad MS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color: var(--neon-blue);"></i></span>
+        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -674,13 +895,22 @@
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+           <li class="nav-item">
+           <a class="nav-link" href="#education">Education</a>
+         </li>
+          <li class="nav-item">
             <a class="nav-link" href="#projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link pulse" href="#" download="AhadMSResume.pdf">
+            <a class="nav-link" href="AhadMSResume.pdf" download="AhadMS_Resume.pdf">
               <i class="fas fa-download"></i> Resume
             </a>
           </li>
@@ -689,72 +919,248 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>GAME DEVELOPER</h1>
-      <p>Unity Developer | Game Programmer | Creating immersive digital experiences</p>
+      <h1>Unity Game Developer</h1>
+      <p>Creating immersive, impactful experiences across 2D, 3D, AR, VR, and multiple platforms including Android, iOS, Windows, WebGL, and XR devices.</p>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary-custom">View My Work</a>
         <a href="#contact" class="btn btn-outline-custom">Contact Me</a>
+        <a href="AhadMSResume.pdf" download="AhadMS_Resume.pdf" class="btn btn-outline-custom">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-title">
         <h2>About Me</h2>
       </div>
       <div class="about-content">
+        <div class="about-image">
+          <img src="AhadmsProfilepic.jpg" alt="Ahad MS" class="img-fluid">
+        </div>
         <div class="about-text">
           <p>
             Unity Game Developer with a passion for building engaging, impactful, and technically polished experiences across 2D, 3D, AR, VR, and multiplayer platforms. My portfolio includes immersive therapy games and creative interactive experiences — and at the heart of it all is my drive to solve meaningful problems through creativity and code.
-          </p>
-          <p>
-            While working at <strong>Thryv Rehab Solutions</strong>, I contributed to <strong>Pluto</strong> — a cutting-edge neurorehabilitation robot developed in collaboration with IIT Madras and CMC Vellore. It is designed to assist patients recovering from stroke, Parkinson's, accidents, and other neurological conditions through real-time interaction and therapeutic gameplay.
-          </p>
-          <ul>
-            <li>Fix bugs and lead future development of Pluto's main software</li>
-            <li>Design and build Unity-based therapy games to promote motor recovery</li>
-            <li>Develop the Pluto Device Testing Software to evaluate robotic performance and equipment health</li>
-            <li>Implement real-time communication between Unity and Pluto via Serial/Bluetooth protocols</li>
-            <li>Visualize data (range of motion, progress tracking etc.) within the Unity interface</li>
-          </ul>
-          <p>
-            Learn more about Pluto:
-            <br>• <a href="https://r2d2.iitm.ac.in/innovations/pluto" target="_blank" style="color: var(--neon-blue);">IIT Madras Innovation – Pluto</a>
-            <br>• <a href="https://www.thehindu.com/news/national/tamil-nadu/researchers-at-iit-m-and-cmc-vellore-develop-portable-robot-for-hand-rehabilitation/article69108828.ece" target="_blank" style="color: var(--neon-blue);">The Hindu – Pluto Robot</a>
-            <br>• <a href="https://www.cmch-vellore.edu/press-release-pluto-a-revolutionary-stroke-rehab-robot-developed-by-cmc-vellore-and-iit-madras/" target="_blank" style="color: var(--neon-blue);">CMC Vellore</a>
-          </p>
-          <p>
-            As part of my Pluto development journey, I visited CMC Ranipet Hospital and observed firsthand how patients use Pluto for recovery. That experience helped me design more effective rehabilitation games and led to my successful development of a Pluto device testing software that logs all service and manufacturing test results.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="section" id="projects">
+  <section class="section" id="experience">
     <div class="container">
       <div class="section-title">
-        <h2>Projects</h2>
+        <h2>Work Experience</h2>
       </div>
-      <div class="projects-grid">
-        <!-- Pluto -->
-        <div class="project-card">
-          <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Thryv Rehab Solutions Pvt Ltd <span class="company-location">(Vellore, Tamil Nadu)</span></h3>
+          <span class="experience-date">Nov 2024 - Present</span>
+        </div>
+        <div class="experience-content">
+          <p class="company-description">
+            Developed therapeutic software for cutting-edge neurorehabilitation robotics in collaboration with IIT Madras and CMC Vellore.
+          </p>
+          <ul class="experience-list">
+            <li><i class="fas fa-code"></i> Led development of Pluto's main therapy software in Unity</li>
+            <li><i class="fas fa-gamepad"></i> Designed 8+ adaptive therapy games with motor recovery tracking</li>
+            <li><i class="fas fa-microchip"></i> Implemented Bluetooth/Serial hardware communication</li>
+            <li><i class="fas fa-chart-line"></i> Created real-time data visualization dashboards</li>
+            <li><i class="fas fa-tools"></i> Built device testing software for manufacturing QA</li>
+          </ul>
+          
+          <div class="project-references">
+            <h4>Featured In:</h4>
+            <div class="reference-links">
+              <a href="https://r2d2.iitm.ac.in/innovations/pluto" target="_blank" class="reference-item">
+                <i class="fas fa-university"></i> IIT Madras Innovation
+              </a>
+              <a href="https://www.thehindu.com/news/national/tamil-nadu/researchers-at-iit-m-and-cmc-vellore-develop-portable-robot-for-hand-rehabilitation/article69108828.ece" target="_blank" class="reference-item">
+                <i class="fas fa-newspaper"></i> The Hindu Feature
+              </a>
+              <a href="https://www.cmch-vellore.edu/press-release-pluto-a-revolutionary-stroke-rehab-robot-developed-by-cmc-vellore-and-iit-madras/" target="_blank" class="reference-item">
+                <i class="fas fa-hospital"></i> CMC Vellore Release
+              </a>
+            </div>
           </div>
-          <div class="project-content">
-            <h3>Pluto: Neuro Rehab Game</h3>
-            <p>Therapy game system powered by real-time robotic input, used by patients for interactive hand rehabilitation. Designed using Unity to promote motion through engaging and adaptive gameplay based on sensor feedback.</p>
+        </div>
+      </div>
+      
+     <div class="experience-item">
+        <div class="experience-header">
+            <h3>Emergio Games Pvt Ltd <span class="company-location">(Kakkanad, Kochi)</span></h3>
+            <span class="experience-date">May 2024 - Oct 2024</span>
+        </div>
+        <div class="experience-content">
+            <p class="company-description">
+            Unity Developer creating engaging gameplay experiences for mobile and PC platforms.
+            </p>
+            <ul class="experience-list">
+            <li><i class="fas fa-cogs"></i> Developed core gameplay systems and mechanics</li>
+            <li><i class="fas fa-mobile-alt"></i> Optimized performance for mobile platforms</li>
+            <li><i class="fas fa-paint-brush"></i> Collaborated with art/design teams</li>
+            <li><i class="fas fa-robot"></i> Implemented character controllers and AI</li>
+            <li><i class="fas fa-code-branch"></i> Maintained code standards through reviews</li>
+            </ul>
+            <div class="experience-certificate">
+            <a href="Emergio Games Experience Certificate.pdf" download="AhadMS_EmergioGames_Certificate.pdf" class="btn btn-outline-custom btn-sm">
+                <i class="fas fa-download"></i> Download Experience Certificate
+            </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+      
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C</span>
           </div>
         </div>
         
-        <!-- Rush Compact -->
+        <div class="skills-category">
+          <h3><i class="fas fa-gamepad"></i> Unity Development</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">2D/3D Game Dev</span>
+            <span class="skill-tag">AR/VR</span>
+            <span class="skill-tag">HDRP/URP</span>
+            <span class="skill-tag">Cinemachine</span>
+            <span class="skill-tag">Timeline</span>
+            <span class="skill-tag">Animation</span>
+            <span class="skill-tag">Navmesh</span>
+            <span class="skill-tag">Postprocessing</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3><i class="fas fa-tachometer-alt"></i> Optimization</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Profiler</span>
+            <span class="skill-tag">Object Pooling</span>
+            <span class="skill-tag">Occlusion Culling</span>
+            <span class="skill-tag">Texture Compression</span>
+            <span class="skill-tag">Async Loading</span>
+            <span class="skill-tag">UI Optimization</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3><i class="fas fa-atom"></i> Physics & Gameplay</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Character Controller</span>
+            <span class="skill-tag">Wheel Colliders</span>
+            <span class="skill-tag">Particle Systems</span>
+            <span class="skill-tag">Raycasting</span>
+            <span class="skill-tag">Splines</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3><i class="fas fa-code-branch"></i> Version Control</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Plastic SCM</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3><i class="fas fa-brain"></i> Core Concepts</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Algorithms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/JdAJMCmrjmY" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Pluto – H. Hand Rehabilitation Robot Software</h3>
+            <p>Pluto is a smart therapy platform for finger, hand, and wrist rehab, using adaptive mechanisms for movements like flexion, extension, and rotation. It tailors exercises for stroke, Parkinson’s, and injury recovery, ensuring safe, trackable progress. My role: Software maintenance and new game-based UI implementation to boost patient engagement.</p>
+            <div class="project-links">
+              <a href="https://youtu.be/JdAJMCmrjmY" class="btn btn-primary-custom btn-sm" target="_blank">View Video</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/VD_5ewVv-cE" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Fruit Popper</h3>
+            <p>Deceptively Simple, Technologically Advanced. Our rehab games may seem easy, but they’re powered by a smart system that tracks real-time data, adapts difficulty, and uses robotic control—no keyboard, just the Pluto Rehab Robot via Arduino, Unity, and Bluetooth. The system auto-adjusts game speed and response based on patient progress, using limited motion input to control gameplay through precise biomechanical data conversion.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/EsNepNUdPUo" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Brick Blaster</h3>
+            <p>A classic concept with a clinical edge, Brick Blaster uses bouncing mechanics to boost reflexes and range. Played entirely through robotic motion control, it reads real-time input to shatter bricks while tracking patient progress. Adaptive difficulty and built-in therapy modes make it more than a game—it’s a targeted tool for recovery, disguised as fun.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/KLYJdvsFLxg" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>BunnyVsYummy</h3>
+            <p>In Bunny Vs Yummy, players guide a health-focused bunny to dodge junk food and collect nutritious snacks. Behind the scenes, robotic control and biomechanical tracking turn every gesture into real-time therapy. The game adapts difficulty based on progress, combining assistive, resistance, and free-play modes for a complete rehab experience—all driven by Pluto.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/7xb3IG_6iV4" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Egg Catcher</h3>
+            <p>Egg Catcher challenges timing and control as patients guide their character to catch falling eggs using precise, limited-range movement. With the Pluto Rehab Robot translating biomechanics into gameplay, even small motions lead to meaningful actions. As performance improves, the game evolves—speeding up and shifting between therapy modes seamlessly.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/VJDYpliqSPw" allowfullscreen></iframe>
@@ -768,7 +1174,6 @@
           </div>
         </div>
         
-        <!-- Blue Guy -->
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/yCzK3Bvy0uQ" allowfullscreen></iframe>
@@ -782,7 +1187,6 @@
           </div>
         </div>
         
-        <!-- Pro Driver -->
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/2tTJMHDFBdQ" allowfullscreen></iframe>
@@ -796,7 +1200,6 @@
           </div>
         </div>
         
-        <!-- Dead Zone -->
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
@@ -810,7 +1213,6 @@
           </div>
         </div>
         
-        <!-- Bask It Right -->
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/tBfV3S09UoQ" allowfullscreen></iframe>
@@ -824,7 +1226,6 @@
           </div>
         </div>
         
-        <!-- FlyBird -->
         <div class="project-card">
           <div class="project-media">
             <iframe src="https://www.youtube.com/embed/w7VqhzP2oT4" allowfullscreen></iframe>
@@ -837,48 +1238,185 @@
             </div>
           </div>
         </div>
+        
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/Jfq4svclDBY" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>1Click Player Controller</h3>
+            <p>Unity Editor tool that sets up a complete 3D player controller with just one click. It auto-adds CharacterController, movement scripts, animations, camera follow system, and optional punching functionality.</p>
+            <div class="project-links">
+              <a href="https://github.com/AhadMSGD/1ClickPlayerController" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-title">
+        <h2>Education</h2>
+      </div>
+      
+      <div class="education-timeline">
+        <div class="education-item">
+          <div class="education-header">
+            <h3>Unity Game Development</h3>
+            <span class="education-date">2023 - 2024</span>
+          </div>
+          <div class="education-content">
+            <p class="institution">Brototype, Ernakulam</p>
+            <div class="education-actions">
+              <a href="Ahad M S_BCE114_Completion Certificate.pdf" download="AhadMS_UnityCertification.pdf" class="btn btn-outline-custom btn-sm">
+                <i class="fas fa-download"></i> Download Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <div class="education-header">
+            <h3>BCom - Finance</h3>
+            <span class="education-date">2018 - 2021 (Ongoing)</span>
+          </div>
+          <div class="education-content">
+            <p class="institution">University of Calicut</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <div class="education-header">
+            <h3>Higher Secondary (Humanities)</h3>
+            <span class="education-date">2016 – 2018</span>
+          </div>
+          <div class="education-content">
+            <p class="institution">HSS Vazhakkulam, Ernakulam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>What Colleagues Say</h2>
+      </div>
+      
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="testimonial-text">Working with Ahad on our rehabilitation games was a seamless experience. His attention to detail in Unity development ensured our therapeutic exercises were not only functionally precise but also engaging for patients. He consistently implemented our quality requirements while suggesting creative improvements that enhanced the final product.</p>
+                <i class="fas fa-quote-right quote-icon"></i>
+              </div>
+              <div class="testimonial-author">
+                <h4>Ann David</h4>
+                <p class="author-title">Quality Assurance Lead at Thryv Rehab</p>
+                <a href="https://www.linkedin.com/in/ann-david-a2268479" target="_blank" class="linkedin-btn">
+                  <i class="fab fa-linkedin"></i> View Profile
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="testimonial-text">Working with Ahad on Pluto was a pleasure. His expertise in Unity and focus on creating rehabilitation-focused games played a key role in developing an impactful tool for stroke recovery. His understanding of patient needs translated into engaging, therapeutic game experiences that are truly making a difference.</p>
+                <i class="fas fa-quote-right quote-icon"></i>
+              </div>
+              <div class="testimonial-author">
+                <h4>Kavin Adhithya</h4>
+                <p class="author-title">Software developer At Thryv Rehab Solutions</p>
+                <a href="https://www.linkedin.com/in/kavin-adhithya-k-s-6a60b5209" target="_blank" class="linkedin-btn">
+                  <i class="fab fa-linkedin"></i> View Profile
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="testimonial-text">As the Managing Director, I had the opportunity to witness Ahad’s remarkable contribution to the Pluto rehabilitation project. His deep expertise in Unity and passion for developing patient-centered solutions were instrumental in shaping a powerful therapeutic tool for stroke recovery. The games he created are not only technically sound but also thoughtfully designed to support patient engagement and recovery in meaningful ways.</p>
+                <i class="fas fa-quote-right quote-icon"></i>
+              </div>
+              <div class="testimonial-author">
+                <h4>Sathish Balaraman</h4>
+                <p class="author-title">MD at Thryv Rehab Solutions</p>
+               <a href="https://www.linkedin.com/in/sathish-balaraman-90318363" target="_blank" class="linkedin-btn">
+                  <i class="fab fa-linkedin"></i> View Profile
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="contact">
     <div class="container">
       <div class="section-title">
-        <h2>Contact Me</h2>
+        <h2>Get In Touch</h2>
       </div>
       <div class="contact-form">
         <form action="https://formspree.io/f/mwpbwgjv" method="POST">
           <div class="mb-3">
-            <label for="email" class="form-label">Your Email:</label>
+            <label for="email" class="form-label">Your Neural Address:</label>
             <input type="email" id="email" name="email" class="form-control" required>
           </div>
           <div class="mb-3">
-            <label for="message" class="form-label">Your Message:</label>
+            <label for="message" class="form-label">Encoded Message:</label>
             <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary-custom w-100 pulse">Send Message</button>
+          <button type="submit" class="btn btn-primary-custom w-100">Initiate Transmission</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-logo">AHAD MS</div>
+      <div class="footer-logo">Ahad MS</div>
       <div class="footer-links">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="social-links">
-        <a href="mailto:ahadms1868@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/ahad-ms/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/ahadms" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:ahadms1868@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
       <div class="copyright">
-        &copy; 2025 Ahad MS. All rights reserved.
+        © 2025 Ahad MS. All rights reserved.
       </div>
     </div>
   </footer>
@@ -907,20 +1445,17 @@
         navbar.style.boxShadow = '0 0 15px rgba(5, 217, 232, 0.3)';
       }
     });
-    
+
     // Add glitch effect randomly to navbar brand
     const navbarBrand = document.querySelector('.navbar-brand');
-    
-    function randomGlitch() {
+    setInterval(() => {
       if (Math.random() > 0.9) {
         navbarBrand.classList.add('glitch-effect');
         setTimeout(() => {
           navbarBrand.classList.remove('glitch-effect');
         }, 1000);
       }
-    }
-    
-    setInterval(randomGlitch, 5000);
+    }, 5000);
   </script>
 </body>
 </html>
